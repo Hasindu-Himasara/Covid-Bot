@@ -48,25 +48,36 @@ global_recovered    = str(data['data']['global_recovered'])
 
 # /covid command menu
 covidinfo = f"""
-ශ්‍රී ලංකාවේ කොරෝනා තත්වය. 🇱🇰
-🔄 {update_date_time} ට යාවත්කාලීන කරන ලදී.
-• නව රෝගීන් ගණන 😷 - {local_new_cases}
-• නව මරණ ගණන ⚰ - {local_new_deaths}
-• තහවුරු කරන ලද මුළු රෝගීන් ගණන 🤒 - {local_total_cases}
-• තවමත් ප්‍රතිකාර ලබන රෝගීන් ගණන 🤕 - {local_active_cases}
-• මේ වන විට සුව වූ කොරෝන රෝගීන් ගණන 🙂 - {local_recovered}
-• මුළු මරණ සංඛ්‍යාව ⚰ - {local_deaths}
+🇱🇰 ශ්‍රී ලංකාවේ කොරෝනා තත්වය 🇱🇰
+
+🔔 {update_date_time} ට යාවත්කාලීන කරන ලදී.
+🚨 නව රෝගීන් ගණන - {local_new_cases}
+
+⛱ නව මරණ ගණන - {local_new_deaths}
+
+🍫 තහවුරු කරන ලද මුළු රෝගීන් ගණන - {local_total_cases}
+
+🌶 තවමත් ප්‍රතිකාර ලබන රෝගීන් ගණන - {local_active_cases}
+
+🧊 මේ වන විට සුව වූ කොරෝන රෝගීන් ගණන - {local_recovered}
+
+🍕 මුළු මරණ සංඛ්‍යාව - {local_deaths}
 """
 
 # /gcovid command menu
 gcovidinfo = f"""
-සමස්ත ලෝකයේ කොරෝනා තත්වය. 🌎
-🔄{update_date_time} ට යාවත්කාලීන කරන ලදී.
-• නව රෝගීන් ගණන 😷 - {global_new_cases}
-• නව මරණ ගණන ⚰ - {global_new_deaths}
-• තහවුරු කරන ලද මුළු රෝගීන් ගණන 🤒 - {global_total_cases}
-• මේ වන විට සුව වූ කොරෝන රෝගීන් ගණන 🙂 - {global_recovered}
-• මුළු මරණ සංඛ්‍යාව ⚰ - {global_deaths}
+🌎 සමස්ත ලෝකයේ කොරෝනා තත්වය 🌎
+
+🔔 {update_date_time} ට යාවත්කාලීන කරන ලදී.
+🚨 නව රෝගීන් ගණන 😷 - {global_new_cases}
+
+⛱ නව මරණ ගණන ⚰ - {global_new_deaths}
+
+🍫 තහවුරු කරන ලද මුළු රෝගීන් ගණන 🤒 - {global_total_cases}
+
+🌶 මේ වන විට සුව වූ කොරෝන රෝගීන් ගණන 🙂 - {global_recovered}
+
+🧊 මුළු මරණ සංඛ්‍යාව ⚰ - {global_deaths}
 """
 # /help command menu
 help = f"""
@@ -81,10 +92,10 @@ Inline mode
 
 # Markup
 mark1 = telebot.types.InlineKeyboardMarkup()
-mark1.add(telebot.types.InlineKeyboardButton(text='Updates', url='https://t.me/szteambots'),
-          telebot.types.InlineKeyboardButton(text='Support', url='https://t.me/slbotzone')),
-mark1.add(telebot.types.InlineKeyboardButton(text='Latest Details', callback_data=1)),
-mark1.add(telebot.types.InlineKeyboardButton(text='Go Inline', switch_inline_query_current_chat="")),
+mark1.add(telebot.types.InlineKeyboardButton(text='🔔 Updates', url='https://t.me/Altex_Updates'),
+          telebot.types.InlineKeyboardButton(text='🌷 Support', url='https://t.me/Altex_Support')),
+mark1.add(telebot.types.InlineKeyboardButton(text='🌍 Latest Details', callback_data=1)),
+mark1.add(telebot.types.InlineKeyboardButton(text='☘ Go Inline', switch_inline_query_current_chat="")),
 
 mark2 = telebot.types.InlineKeyboardMarkup()
 mark2.add(telebot.types.InlineKeyboardButton(text='Latest Details', callback_data=1),
@@ -93,7 +104,7 @@ mark2.add(telebot.types.InlineKeyboardButton(text='Latest Details', callback_dat
 # Commands
 @bot.message_handler(commands=['start'])
 def send_start(message):
-   bot.send_message(message.chat.id, text="Hi, කොරෝනා පිළිබද තොරතුරු ලබා ගැනීම සදහා [මාව](http://t.me/szcovidbot) භාවිතා කරන්න පුළුවන්. භාවිතා කරන ආකාරය දැන ගැනීමට /help භාවිතා කරන්න.",parse_mode='Markdown', reply_markup=mark1)
+   bot.send_message(message.chat.id, text="🌷 Hi There , You can use me to get information about Covid. Use / help to learn how to use it.",parse_mode='Markdown', reply_markup=mark1)
 
 @bot.message_handler(commands=["covid"])
 def send_covid(message):
@@ -110,8 +121,11 @@ def send_help(message):
 @bot.message_handler(commands=["about"])
 def send_about(message):
     bot.send_message(message.chat.id, """
-• මම කොරෝනා තොරතුරු දැන ගැනීම සදහා ටිනුර දිනිත් විසින් සාදන ලද Bot කෙනෙකි.
-• සියලු තොරතුරු [සෞඛ්‍ය ප්‍රවර්ධන කාර්‍යංශයෙන්](https://hpb.health.gov.lk) ලබා ගත් තොරතුරු ය.
+🌷 @Altex_Support
+🌷 @Altex_Updates
+🌷 @SLNewsAlert
+🛠 @CovidUpdatesLKBOT
+🔔 සියලු තොරතුරු [සෞඛ්‍ය ප්‍රවර්ධන කාර්‍යංශයෙන්](https://hpb.health.gov.lk) ලබා ගත් තොරතුරු ය.
                                       """, parse_mode='Markdown')
 
 # Callback Data
@@ -125,8 +139,8 @@ def query_handler(call):
 # Inline Mode             
 @bot.inline_handler(lambda query: query.query == 'covid')
 def query_text(inline_query):
-        in1 = types.InlineQueryResultArticle('1', "ශ්‍රී ලංකාවේ කොරෝනා තත්වය. 🇱🇰", types.InputTextMessageContent(covidinfo))
-        in2 = types.InlineQueryResultArticle('2', "සමස්ත ලෝකයේ කොරෝනා තත්වය. 🌎", types.InputTextMessageContent(gcovidinfo))
+        in1 = types.InlineQueryResultArticle('1', " 🇱🇰 ශ්‍රී ලංකාවේ කොරෝනා තත්වය. 🇱🇰", types.InputTextMessageContent(covidinfo))
+        in2 = types.InlineQueryResultArticle('2', "🌎 සමස්ත ලෝකයේ කොරෝනා තත්වය 🌎", types.InputTextMessageContent(gcovidinfo))
         bot.answer_inline_query(inline_query.id, [in1, in2])
     
 bot.polling()
