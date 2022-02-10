@@ -48,7 +48,7 @@ global_recovered    = str(data['data']['global_recovered'])
 
 # /covid command menu
 covidinfo = f"""
-**🇱🇰 ශ්‍රී ලංකාවේ කොරෝනා තත්වය 🇱🇰
+🇱🇰 ශ්‍රී ලංකාවේ කොරෝනා තත්වය 🇱🇰
 🔔 {update_date_time} ට යාවත්කාලීන කරන ලදී.
 
 🚨 නව රෝගීන් ගණන - {local_new_cases}
@@ -56,7 +56,7 @@ covidinfo = f"""
 🍫 තහවුරු කරන ලද මුළු රෝගීන් ගණන - {local_total_cases}
 🌶 තවමත් ප්‍රතිකාර ලබන රෝගීන් ගණන - {local_active_cases}
 🧊 මේ වන විට සුව වූ කොරෝන රෝගීන් ගණන - {local_recovered}
-🍕 මුළු මරණ සංඛ්‍යාව - {local_deaths}**
+🍕 මුළු මරණ සංඛ්‍යාව - {local_deaths}
 """
 
 # /gcovid command menu
@@ -104,7 +104,7 @@ def send_covid(message):
 @bot.message_handler(commands=["gcovid"])
 def send_gcovid(message):
     bot.send_message(message.chat.id, gcovidinfo)
-
+  
 @bot.message_handler(commands=["help"])
 def send_help(message):
     bot.send_message(message.chat.id, text=help, reply_markup=mark2) 
@@ -116,6 +116,7 @@ def send_about(message):
 🌷 @Altex_Updates
 🌷 @SLNewsAlert
 🛠 @CovidUpdatesLKBOT
+
 🔔 සියලු තොරතුරු [සෞඛ්‍ය ප්‍රවර්ධන කාර්‍යංශයෙන්](https://hpb.health.gov.lk) ලබා ගත් තොරතුරු ය.
                                       """, parse_mode='Markdown')
 
