@@ -49,34 +49,25 @@ global_recovered    = str(data['data']['global_recovered'])
 # /covid command menu
 covidinfo = f"""
 **🇱🇰 ශ්‍රී ලංකාවේ කොරෝනා තත්වය 🇱🇰
-
 🔔 {update_date_time} ට යාවත්කාලීන කරන ලදී.
+
 🚨 නව රෝගීන් ගණන - {local_new_cases}
-
 ⛱ නව මරණ ගණන - {local_new_deaths}
-
 🍫 තහවුරු කරන ලද මුළු රෝගීන් ගණන - {local_total_cases}
-
 🌶 තවමත් ප්‍රතිකාර ලබන රෝගීන් ගණන - {local_active_cases}
-
 🧊 මේ වන විට සුව වූ කොරෝන රෝගීන් ගණන - {local_recovered}
-
 🍕 මුළු මරණ සංඛ්‍යාව - {local_deaths}**
 """
 
 # /gcovid command menu
 gcovidinfo = f"""
 🌎 සමස්ත ලෝකයේ කොරෝනා තත්වය 🌎
-
 🔔 {update_date_time} ට යාවත්කාලීන කරන ලදී.
+
 🚨 නව රෝගීන් ගණන 😷 - {global_new_cases}
-
 ⛱ නව මරණ ගණන ⚰ - {global_new_deaths}
-
 🍫 තහවුරු කරන ලද මුළු රෝගීන් ගණන 🤒 - {global_total_cases}
-
 🌶 මේ වන විට සුව වූ කොරෝන රෝගීන් ගණන 🙂 - {global_recovered}
-
 🧊 මුළු මරණ සංඛ්‍යාව ⚰ - {global_deaths}
 """
 # /help command menu
@@ -104,7 +95,7 @@ mark2.add(telebot.types.InlineKeyboardButton(text='Latest Details', callback_dat
 # Commands
 @bot.message_handler(commands=['start'])
 def send_start(message):
-   bot.send_message(message.chat.id, text="🌷 Hi There , You can use me to get information about Covid. Use / help to learn how to use it.",parse_mode='Markdown', reply_markup=mark1)
+   bot.send_message(message.chat.id, text="🌷 Hi There , You can use me to get information about Covid. Use /help to learn how to use it.",parse_mode='Markdown', reply_markup=mark1)
 
 @bot.message_handler(commands=["covid"])
 def send_covid(message):
